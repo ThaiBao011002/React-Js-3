@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class ProductItem extends Component {
 	render() {
-		const { productsData, handleSeeDetails, } = this.props;
+		const { productsData } = this.props;
 		return (
 			<div className='card'>
 				<img src={productsData.image} alt='' />

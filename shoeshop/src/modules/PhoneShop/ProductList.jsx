@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 
 export default class Sanphamchitiet extends Component {
   render() {
-    const {ProductDetails} = this.props;
-    const {id, name, alias, price, description, shortDescription, quantity,} = ProductDetails;
+    const {productsData} = this.props;
+    const {id, name, alias, price, description, shortDescription, quantity,} = productsData;
     return (
       <div>
         						<h2>Thông Tin Chi Tiết</h2>
