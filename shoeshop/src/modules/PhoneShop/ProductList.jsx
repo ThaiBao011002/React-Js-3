@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-export default class Sanphamchitiet extends Component {
+export default class ProducList extends Component {
   render() {
-    const {productsData} = this.props;
-    const {id, name, alias, price, description, shortDescription, quantity,} = productsData;
+    const {ProductDetails} = this.props;
+    const {id, name, alias, price, description, shortDescription, quantity,} = ProductDetails;
     return (
       <div>
         						<h2>Thông Tin Chi Tiết</h2>
@@ -16,7 +16,7 @@ export default class Sanphamchitiet extends Component {
 							</tr>
 							<tr>
 								<td>Tên loại giày</td>
-								<td>{name}</td>
+								<td>${name}</td>
 							</tr>
 							<tr>
 								<td>Tên rút gọn</td>

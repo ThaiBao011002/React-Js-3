@@ -147,13 +147,14 @@ export default class ShoesStore extends Component {
               const newState = { ProductDetails: product };
               this.setState(newState);
             }}
-          />
+            />
         </div>
       );
     });
 
     return newArr;
-  };
+  };   
+  
   render() {
     const {
       id,
@@ -174,7 +175,7 @@ export default class ShoesStore extends Component {
         </div>
         <div className='row'>{this.renderShoe()}</div>
         <div>
-          <Modal />
+          <Modal/>
         </div>
       </div>
     );

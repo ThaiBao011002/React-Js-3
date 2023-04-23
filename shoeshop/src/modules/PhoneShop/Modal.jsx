@@ -3,7 +3,7 @@ import ProducList from './ProductList'
 
 export default class Modal extends Component {
     state = {
-            showModal: false,
+        showModal: false,
     };
     handleClose = () => {
         this.setState({ showMdodal: false });
@@ -15,26 +15,26 @@ export default class Modal extends Component {
         const { productsData } = this.props;
         return (
             <Modal props show={this.state.showModal} onHide={this.handleClose}>
-				<div className='row mt-5'>
-					<div className='col-3'>
-						<h2>{productsData.name}</h2>
-						<img
-							src={productsData.id}
-							alt='..'
-							style={{
-								width: '100%',
-							}}
-						/>
-					</div>
-					<div className='col-9'>
-						<ProducList 
-						maSP={productsData.id}
-						img={productsData.image}
-						/>
+                <div className='row mt-5'>
+                    <div className='col-3'>
+                        <h2>{productsData.name}</h2>
+                        <img
+                            src={productsData.name}
+                            alt=''
+                            style={{
+                                width: '100%',
+                            }}
+                        />
+                    </div>
+                    <div className='col-9'>
+                        <ProducList
+                            maSP={productsData.id}
+                            img={productsData.image}
+                        />
 
-						
-					</div>
-				</div>
+
+                    </div>
+                </div>
             </Modal>
 
         )
