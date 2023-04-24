@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ModalDetailProduct from './ModalDetailProduct';
-
 // export default class ProductItem extends Component {
 // 	render() {
 // 		const {productsData} = this.props;
@@ -27,38 +25,28 @@ import ModalDetailProduct from './ModalDetailProduct';
 // 	}
 // }
 export default class ProductItem extends Component {
-	state = {
-		showModal: false
-	};
-	handleCloseModal = () => {
-		this.setState({ showModal: false });
-	};
-	// có thể đặt tên lại cho ý nghĩa nha
-	handleOpenModal = () => {
-		this.setState({ showModal: true });
-	};
 	render() {
-		const { productsData } = this.props;
+		const { data, handleSeeDetails } = this.props;
 		return (
-			<div className="card">
-				<img src={productsData.image} alt="" />
+			<div className='card col-4'>
+			<img src={data.image} alt={data.name} />
 
-				<div className="card-body">
-					<p>{productsData.name}</p>
-					<p>${productsData.price.toLocaleString()}</p>
-					<button
-						className="btn btn-dark"
-						data-toggle="modal"
-						data-target="#exampleModalCenter"
-						onClick={this.handleOpenModal}
-					>
-						Xem chi tiết
-					</button>
-				</div>
-				{this.state.showModal && (
-					<ModalDetailProduct onCloseModal={this.handleCloseModal} />
-				)}
+			<div className='card-body m-5' >
+				<p>{data.name}</p>
+				<p>${data.price}</p>
+
+				<button className='btn btn-success' onClick={handleSeeDetails}>
+					Xem Chi Tiết
+				</button>
+
+				<button
+					className='btn btn-info'
+				>
+						<i class="fa-solid fa-cart-shopping"></i>
+						Thêm giỏ hàng
+				</button>
 			</div>
+		</div>
 		);
 	}
 }

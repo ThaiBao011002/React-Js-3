@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ProductItem from './ProductItem';
-import Modal from './ModalDetailProduct';
+import ProducList from './ProductList';
 
 export default class ShoesStore extends Component {
   arrShoe = [
@@ -140,31 +140,20 @@ export default class ShoesStore extends Component {
   renderShoe = () => {
     const newArr = this.arrShoe.map((product, index) => {
       return (
-        <div className='col-4'>
-          <ProductItem
-            productsData={product}
-          />
-          <Modal
-            productsData={product}
-            />
-        </div>
+        <ProductItem
+          data={product}
+          handleSeeDetails={() => {
+            const newState = { ProductDetails: product };
+            this.setState(newState);
+          }}
+        />
       );
     });
-    
     return newArr;
   };
 
   render() {
-    const {
-      id,
-      name,
-      alias,
-      price,
-      description,
-      shortDescription,
-      quantity,
-      image,
-    } = this.state.ProductDetails;
+
     return (
       <div className='container mt-2'>
         <div>
@@ -173,7 +162,28 @@ export default class ShoesStore extends Component {
           </h1>
         </div>
         <div className='row'>{this.renderShoe()}</div>
+
+        <div className='row mt-5'>
+          <div className='col-3 p-5'>
+            <h2>{this.state.ProductDetails.name}</h2>
+            <img
+              src={this.state.ProductDetails.image}
+              alt=''
+              style={{
+                width: '100%',
+              }}
+            />
+          </div>
+          <div className='col-9'>
+            <ProducList
+              ProductDetails={this.state.ProductDetails}
+              id={this.state.ProductDetails.id}
+              img={this.state.ProductDetails.image}
+            />
+          </div>
+        </div>
       </div>
+
     );
   }
 
