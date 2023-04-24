@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ProductItem from './ProductItem';
-import Modal from './Modal'
+import Modal from './ModalDetailProduct';
 
 export default class ShoesStore extends Component {
   arrShoe = [
@@ -143,18 +143,17 @@ export default class ShoesStore extends Component {
         <div className='col-4'>
           <ProductItem
             productsData={product}
-            handleSeeDetails={() => {
-              const newState = { ProductDetails: product };
-              this.setState(newState);
-            }}
+          />
+          <Modal
+            productsData={product}
             />
         </div>
       );
     });
-
+    
     return newArr;
-  };   
-  
+  };
+
   render() {
     const {
       id,
@@ -174,9 +173,6 @@ export default class ShoesStore extends Component {
           </h1>
         </div>
         <div className='row'>{this.renderShoe()}</div>
-        <div>
-          <Modal/>
-        </div>
       </div>
     );
   }
